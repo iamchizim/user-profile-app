@@ -1,13 +1,46 @@
+/* Global Styles */
 body {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  font-family: 'Arial', sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Card Styles */
+.card {
+  background-color: #1e1e1e; /* Darker shade of black */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* User Profile Styles */
+.user-profile img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 3px solid #1e90ff; /* Blue border */
+}
+
+.user-profile h2 {
+  color: #1e90ff; /* Blue text for headings */
+  margin: 10px 0;
+}
+
+.user-profile p {
+  color: #b0c4de; /* Light steel blue for text */
+  margin: 5px 0;
+}
+
+/* Loading and Error Messages */
+p {
+  color: #ff6347; /* Tomato color for error messages */
 }
