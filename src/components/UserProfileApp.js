@@ -4,33 +4,40 @@ import UserProfile from "./UserProfile";
 
 const UserProfileApp = () => {
   const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchUserdata = async () => {
       try {
-        setLoading(true);
+        setLoading(true)
         setError(null);
         const response = await fetch("https://randomuser.me/api/");
         if (!response.ok) {
           throw new Error("Failed to fetch user data");
         }
-        const userData = await response.json();
-        setUserData(userData);
+        const data = await response.json();
+        setUserData(data.results[0]);
+        setLoading(false)
       } catch (error) {
         setError(error.message);
         setUserData(null);
-      } finally {
-        setLoading(false);
       }
+     
     };
-    fetchUserdata(userData);
+    fetchUserdata();
   }, []);
+  if(loading){
+    return <p>Loading...</p>
+  }
+  if(error){
+    return <p>Error: {error}</p>
+  }
 
   return (
     <div className="user-details">
       <h1>User Profile</h1>
-      <UserProfile userData={userData} />
+     {userData && <UserProfile userData={userData} />} 
     </div>
   );
 };
